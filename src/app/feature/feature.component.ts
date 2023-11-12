@@ -30,4 +30,8 @@ export class FeatureComponent {
       // 這裡可以處理用戶數據 result
     });
   }
+
+  executeDeleteUser(userId: number) {
+    this.users = this.users.filter(user => user.userId !== userId);
+  }
 }
