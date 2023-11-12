@@ -1,0 +1,45 @@
+<mat-sidenav-container fxFlexFill>
+  <mat-sidenav #sidenav mode="side" opened fixedInViewport="true" style="width: 15%;">
+    <!-- 選單內容 -->
+    <mat-nav-list>
+      <mat-list-item>功能頁1</mat-list-item>
+      <!-- 更多選單項目 -->
+    </mat-nav-list>
+  </mat-sidenav>
+
+  <mat-sidenav-content fxFlex>
+    <mat-toolbar color="primary">網站名稱</mat-toolbar>
+    <!-- 功能區塊 -->
+    <div style="padding: 20px;">
+      <!-- 功能頁內容 -->
+      <div fxLayout="column" fxLayoutGap="20px">
+        <!-- 功能頁 Title -->
+        <h2>用戶列表</h2>
+        <!-- 查詢輸入框 -->
+        <mat-form-field appearance="fill">
+          <mat-label>搜索用戶</mat-label>
+          <input matInput placeholder="輸入用戶名稱">
+          <button mat-icon-button matSuffix>
+            <mat-icon>search</mat-icon>
+          </button>
+        </mat-form-field>
+        <!-- 表格資料 -->
+        <div fxLayout="row wrap">
+          <div fxFlex="25" *ngFor="let user of users" style="padding: 10px;">
+            <mat-card class="user-card">
+              <mat-card-header>
+                <mat-card-title>用戶ID: {{ user.userId }}</mat-card-title>
+                <mat-card-subtitle>用戶名稱: {{ user.userName }}</mat-card-subtitle>
+              </mat-card-header>
+              <mat-card-content>
+                <p>帳號: {{ user.userAccount }}</p>
+                <p>性別: {{ user.userGender }}</p>
+                <p>創建時間: {{ user.createTime }}</p>
+              </mat-card-content>
+            </mat-card>
+          </div>
+        </div>
+      </div>
+    </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>
