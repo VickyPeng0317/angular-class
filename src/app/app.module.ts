@@ -19,6 +19,12 @@ import { FeatureComponent } from './feature/feature.component';
 import { MatTableModule } from '@angular/material/table';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
+import { CreateUserDialogComponent } from './create-user-dialog/create-user-dialog.component';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatSelectModule } from '@angular/material/select';
+import { FormsModule } from '@angular/forms';
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -26,7 +32,8 @@ import { MatIconModule } from '@angular/material/icon';
     AgePipe,
     GenderPipe,
     LoginComponent,
-    FeatureComponent
+    FeatureComponent,
+    CreateUserDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -41,7 +48,10 @@ import { MatIconModule } from '@angular/material/icon';
     MatListModule,
     MatTableModule,
     MatFormFieldModule,
-    MatIconModule
+    MatIconModule,
+    MatDialogModule,
+    MatSelectModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

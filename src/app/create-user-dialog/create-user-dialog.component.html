@@ -1,0 +1,24 @@
+<h2 mat-dialog-title>新增用戶</h2>
+<mat-dialog-content>
+  <div>
+    <mat-form-field>
+      <mat-label>用戶名</mat-label>
+      <input matInput [(ngModel)]="userData.userName" />
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>帳號</mat-label>
+      <input matInput [(ngModel)]="userData.userAccount" />
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>性別</mat-label>
+      <mat-select [(ngModel)]="userData.userGender">
+        <mat-option value="M">男</mat-option>
+        <mat-option value="W">女</mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+</mat-dialog-content>
+<mat-dialog-actions>
+  <button mat-button (click)="onCancel()">取消</button>
+  <button mat-button [mat-dialog-close]="userData" cdkFocusInitial>儲存</button>
+</mat-dialog-actions>

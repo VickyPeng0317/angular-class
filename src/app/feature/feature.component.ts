@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { MatTableDataSource } from '@angular/material/table';
+import { MatDialog } from '@angular/material/dialog';
+import { CreateUserDialogComponent } from '../create-user-dialog/create-user-dialog.component';
 
 @Component({
   selector: 'app-feature',
@@ -17,4 +18,16 @@ export class FeatureComponent {
       createTime: new Date()
     }))
   ];
+  constructor(public dialog: MatDialog) { }
+
+  openCreateUserDialog(): void {
+    const dialogRef = this.dialog.open(CreateUserDialogComponent, {
+      width: '250px'
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed', result);
+      // 這裡可以處理用戶數據 result
+    });
+  }
 }

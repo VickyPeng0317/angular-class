@@ -23,7 +23,8 @@
             <mat-icon>search</mat-icon>
           </button>
         </mat-form-field>
-        <!-- 表格資料 -->
+        <!-- 用戶資料 -->
+        <button mat-raised-button color="primary" (click)="openCreateUserDialog()">新增用戶</button>
         <div fxLayout="row wrap">
           <div fxFlex="25" *ngFor="let user of users" style="padding: 10px;">
             <mat-card class="user-card">
