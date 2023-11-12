@@ -27,7 +27,7 @@
         <!-- 用戶資料 -->
         <div fxLayout="row wrap">
           <div fxFlex="25" *ngFor="let user of users" style="padding: 10px;">
-            <app-user-info-card></app-user-info-card>
+            <app-user-info-card [userInfo]="user"></app-user-info-card>
           </div>
         </div>
       </div>
