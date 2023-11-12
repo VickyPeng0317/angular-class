@@ -23,6 +23,7 @@ import { CreateUserDialogComponent } from './create-user-dialog/create-user-dial
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatSelectModule } from '@angular/material/select';
 import { FormsModule } from '@angular/forms';
+import { UserInfoCardComponent } from './user-info-card/user-info-card.component';
 
 
 @NgModule({
@@ -33,7 +34,8 @@ import { FormsModule } from '@angular/forms';
     GenderPipe,
     LoginComponent,
     FeatureComponent,
-    CreateUserDialogComponent
+    CreateUserDialogComponent,
+    UserInfoCardComponent
   ],
   imports: [
     BrowserModule,
