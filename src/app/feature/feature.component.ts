@@ -1,26 +1,25 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { CreateUserDialogComponent } from '../create-user-dialog/create-user-dialog.component';
 import { FormControl } from '@angular/forms';
+import { IUser, UserService } from '../user.service';
 
 @Component({
   selector: 'app-feature',
   templateUrl: './feature.component.html',
   styleUrls: ['./feature.component.scss']
 })
-export class FeatureComponent {
-  searchForm = new FormControl('初始值');
-  users = [
-    // 生成8 筆用戶數據示例
-    ...Array.from({ length: 8 }).map((_, index) => ({
-      userId: index,
-      userName: `User ${index}`,
-      userAccount: `user${index}`,
-      userGender: index % 2 === 0 ? 'M' : 'W',
-      createTime: new Date()
-    }))
-  ];
-  constructor(public dialog: MatDialog) { }
+export class FeatureComponent implements OnInit {
+  searchForm = new FormControl('');
+  users: IUser[] = [];
+  constructor(
+    public dialog: MatDialog,
+    private userService: UserService
+  ) { }
+
+  ngOnInit(): void {
+    this.search();
+  }
 
   openCreateUserDialog(): void {
     const dialogRef = this.dialog.open(CreateUserDialogComponent, {
@@ -38,7 +37,6 @@ export class FeatureComponent {
   }
 
   search() {
-    console.log(this.searchForm.value);
-    // TODO: 這裡可以處理搜尋邏輯
+    this.users = this.userService.getUsers(this.searchForm.value);
   }
 }
