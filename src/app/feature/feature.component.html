@@ -18,8 +18,8 @@
         <!-- 查詢輸入框 -->
         <mat-form-field appearance="fill">
           <mat-label>搜索用戶</mat-label>
-          <input matInput placeholder="輸入用戶名稱">
-          <button mat-icon-button matSuffix>
+          <input matInput [formControl]="searchForm" placeholder="輸入用戶名稱">
+          <button mat-icon-button matSuffix (click)="search()">
             <mat-icon>search</mat-icon>
           </button>
         </mat-form-field>

@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { CreateUserDialogComponent } from '../create-user-dialog/create-user-dialog.component';
+import { FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-feature',
@@ -8,6 +9,7 @@ import { CreateUserDialogComponent } from '../create-user-dialog/create-user-dia
   styleUrls: ['./feature.component.scss']
 })
 export class FeatureComponent {
+  searchForm = new FormControl('初始值');
   users = [
     // 生成8 筆用戶數據示例
     ...Array.from({ length: 8 }).map((_, index) => ({
@@ -33,5 +35,10 @@ export class FeatureComponent {
 
   executeDeleteUser(userId: number) {
     this.users = this.users.filter(user => user.userId !== userId);
+  }
+
+  search() {
+    console.log(this.searchForm.value);
+    // TODO: 這裡可以處理搜尋邏輯
   }
 }
