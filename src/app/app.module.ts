@@ -22,7 +22,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { CreateUserDialogComponent } from './create-user-dialog/create-user-dialog.component';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatSelectModule } from '@angular/material/select';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { UserInfoCardComponent } from './user-info-card/user-info-card.component';
 
 
@@ -53,7 +53,8 @@ import { UserInfoCardComponent } from './user-info-card/user-info-card.component
     MatIconModule,
     MatDialogModule,
     MatSelectModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
