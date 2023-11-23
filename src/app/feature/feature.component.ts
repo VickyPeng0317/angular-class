@@ -27,16 +27,25 @@ export class FeatureComponent implements OnInit {
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      console.log('The dialog was closed', result);
-      // 這裡可以處理用戶數據 result
+      this.search();
     });
   }
 
   executeDeleteUser(userId: number) {
-    this.users = this.users.filter(user => user.userId !== userId);
+    this.userService.deleteUser(userId).subscribe(result => {
+      // 失敗
+      if (!result.isSuccess) {
+        alert(result.msg);
+        return;
+      }
+      // 成功
+      this.search();
+    });
   }
 
   search() {
-    this.users = this.userService.getUsers(this.searchForm.value);
+    this.userService.getUsers(this.searchForm.value).subscribe(result => {
+      this.users = result.data;
+    });
   }
 }

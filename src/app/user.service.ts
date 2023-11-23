@@ -22,7 +22,7 @@ export class UserService {
   /**
    * 取得使用者列表
    */
-  getUsers(searchValue?: string): Observable<IApiResult<IUser[]>> {
+  getUsers(searchValue: string | null): Observable<IApiResult<IUser[]>> {
     const url = this.baseUrl + `/users?searchValue=${searchValue}`;
     return this.http.get<IApiResult<IUser[]>>(url);
   }
@@ -46,7 +46,7 @@ export class UserService {
   /**
    * 刪除使用者
    */
-  deleteUser(userId: string): Observable<IApiResult<null>> {
+  deleteUser(userId: number): Observable<IApiResult<null>> {
     const url = this.baseUrl + `/users/${userId}`;
     return this.http.delete<IApiResult<null>>(url);
   }

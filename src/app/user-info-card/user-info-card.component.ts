@@ -5,7 +5,7 @@ import { AfterViewInit, Component, EventEmitter, Input, OnChanges, OnDestroy, On
   templateUrl: './user-info-card.component.html',
   styleUrls: ['./user-info-card.component.scss']
 })
-export class UserInfoCardComponent implements OnInit, OnChanges, OnDestroy, AfterViewInit {
+export class UserInfoCardComponent {
   @Input()
   userInfo = {
     userId: 0,
@@ -24,22 +24,4 @@ export class UserInfoCardComponent implements OnInit, OnChanges, OnDestroy, Afte
     }
     this.onDeleteUserEvent.emit(this.userInfo.userId);
   }
-
-  ngOnInit(): void {
-    console.log(`ngOnInit`);
-  }
-
-  ngOnChanges(): void {
-    console.log(`ngOnChanges`);
-  }
-
-  ngOnDestroy(): void {
-    console.log(`ngOnDestroy`);
-  }
-
-  ngAfterViewInit(): void {
-    console.log(`ngAfterViewInit`);
-  }
-
-
 }

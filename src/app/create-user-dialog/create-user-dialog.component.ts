@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatDialogRef } from '@angular/material/dialog';
+import { UserService } from '../user.service';
 
 @Component({
   selector: 'app-create-user-dialog',
@@ -14,14 +15,25 @@ export class CreateUserDialogComponent {
     userGender: new FormControl('W', Validators.required)
   });
 
-  constructor(public dialogRef: MatDialogRef<CreateUserDialogComponent>) {}
+  constructor(
+    public dialogRef: MatDialogRef<CreateUserDialogComponent>,
+    private userService: UserService
+  ) {}
 
   onCancel(): void {
     this.dialogRef.close();
   }
 
   onSubmit() {
-    console.log(this.userFormGroup.value);
-    // TODO: 呼叫 API 新增用戶
+    const createForm = this.userFormGroup.value;
+    this.userService.createUser(createForm).subscribe(result => {
+      // 失敗
+      if (!result.isSuccess) {
+        alert(result.msg);
+        return;
+      }
+      // 成功
+      this.dialogRef.close();
+    });
   }
 }
